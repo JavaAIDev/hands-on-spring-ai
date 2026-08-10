@@ -19,5 +19,8 @@ jobs:
           distribution: "temurin"
           cache: maven
       - name: Build pdf-qa
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn -B -q package
         working-directory: ./pdf-qa
+      - name: Build simple-text-to-sql
+        run: mvn -B -q package
+        working-directory: ./simple-text-to-sql  
