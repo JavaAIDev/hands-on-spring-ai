@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: pdf-qa
+  threads:
+    virtual:
+      enabled: true
+    vectorstore:
+      pgvector:
+        initializeSchema: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: DEBUG
