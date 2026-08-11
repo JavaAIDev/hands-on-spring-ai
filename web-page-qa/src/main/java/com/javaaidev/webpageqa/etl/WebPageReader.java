@@ -32,7 +32,7 @@ public class WebPageReader implements DocumentReader {
       var trustManager = createTrustManager();
       var sslContext = SSLContext.getInstance("TLS");
       sslContext.init(null, new TrustManager[]{trustManager}, new SecureRandom());
-      var doc = Jsoup.connect(url).sslSocketFactory(sslContext.getSocketFactory()).get();
+      var doc = Jsoup.connect(url).sslContext(sslContext).get();
       return List.of(new Document(doc.body().text(), Map.of(
           "url", url
       )));

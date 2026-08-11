@@ -1,18 +1,20 @@
 spring:
   application:
-    name: naive-rag
+    name: web-page-qa
   threads:
     virtual:
       enabled: true
   ai:
-    ollama:
-      embedding:
-        options:
-          model: "bge-large"
+    openai:
+      api-key: ${OPENAI_API_KEY:demo}
       chat:
+        enabled: true
         options:
-          model: "qwen2.5:0.5b"
-          temperature: 0.1
+          model: gpt-5.6-luna
+      embedding:
+        enabled: true
+        options:
+          model: text-embedding-3-small
     vectorstore:
       pgvector:
         initializeSchema: true
