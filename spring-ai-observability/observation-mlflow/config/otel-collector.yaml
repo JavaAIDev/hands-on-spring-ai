@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+processors:
+  batch:
+exporters:
+  otlp_http/mlflow:
+    endpoint: "http://mlflow:5000"
+    headers:
+      x-mlflow-experiment-id: "0"
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: "otel-collector:10010"
+service:
+  pipelines:
+    metrics:
+      receivers: [ otlp ]
+      processors: [ batch ]
+      exporters: [ prometheus ]
+    traces:
+      receivers: [ otlp ]
+      processors: [ batch ]
+      exporters: [ otlp_http/mlflow ]

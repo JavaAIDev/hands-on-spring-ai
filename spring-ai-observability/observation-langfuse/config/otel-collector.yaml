@@ -1,0 +1,35 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+processors:
+  transform/genai:
+    trace_statements:
+      - context: span
+        statements:
+          - set(attributes["langfuse.observation.input"], attributes["spring.ai.tool.call.arguments"]) where attributes["spring.ai.tool.call.arguments"] != nil
+          - set(attributes["langfuse.observation.output"], attributes["spring.ai.tool.call.result"]) where attributes["spring.ai.tool.call.result"] != nil
+
+  batch:
+exporters:
+  otlp_http/langfuse:
+    endpoint: "http://langfuse-web:3000/api/public/otel"
+    headers:
+      Authorization: "Basic ${LANGFUSE_AUTH_STRING}"
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: "otel-collector:10010"
+service:
+  pipelines:
+    metrics:
+      receivers: [ otlp ]
+      processors: [ batch ]
+      exporters: [ prometheus ]
+    traces:
+      receivers: [ otlp ]
+      processors: [ transform/genai, batch ]
+      exporters: [ otlp_http/langfuse ]
