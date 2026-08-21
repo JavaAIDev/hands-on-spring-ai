@@ -26,4 +26,7 @@ jobs:
         working-directory: ./simple-text-to-sql 
       - name: Build web-page-qa
         run: mvn -B -q package
-        working-directory: ./web-page-qa   
+        working-directory: ./web-page-qa  
+      - name: Build spring-ai-observability
+        run: mvn -B -q package
+        working-directory: ./spring-ai-observability    
