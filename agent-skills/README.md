@@ -39,14 +39,14 @@ Ask the agent to create marketing copy:
 ```bash
 curl -X POST http://localhost:8080/copywriting/tasks \
   -H 'Content-Type: application/json' \
-  -d '{"task":"Use the marketingskills__copywriting skill to write a concise launch email for a new project-management app aimed at small design teams."}'
+  -d '{"task":"Use the copywriting skill to write a concise launch email for a new project-management app aimed at small design teams."}'
 ```
 
 ## How It Works
 
 1. Maven puts the SkillsJar on the application classpath.
 2. `agent.skills.paths=classpath:/META-INF/skills` selects the location inside the JAR.
-3. `SkillsTool` discovers the bundled `marketingskills__copywriting` skill and exposes it to the `ChatClient`.
+3. `SkillsTool` discovers the bundled `copywriting` skill and exposes it to the `ChatClient`.
 4. The OpenAI agent requests the skill when its description matches the copywriting task.
 5. Spring AI returns the skill instructions to the agent, which uses them to create the requested copy.
 
