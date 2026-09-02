@@ -29,4 +29,7 @@ jobs:
         working-directory: ./web-page-qa  
       - name: Build spring-ai-observability
         run: mvn -B -q package
-        working-directory: ./spring-ai-observability    
+        working-directory: ./spring-ai-observability
+      - name: Build agent-skills
+        run: mvn -B -q package
+        working-directory: ./agent-skills    
