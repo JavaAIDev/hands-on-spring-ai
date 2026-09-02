@@ -13,3 +13,7 @@ spring:
 agent:
   skills:
     paths: classpath:/META-INF/skills
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: DEBUG

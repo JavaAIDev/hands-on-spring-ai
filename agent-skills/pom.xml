@@ -50,17 +50,12 @@
     </dependency>
     <dependency>
       <groupId>com.skillsjars</groupId>
-      <artifactId>browser-use__browser-use__browser-use</artifactId>
-      <version>2026_02_23-1d154e1</version>
+      <artifactId>coreyhaines31__marketingskills__copywriting</artifactId>
+      <version>2026_03_14-9d4d29a</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>3.0.3</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
