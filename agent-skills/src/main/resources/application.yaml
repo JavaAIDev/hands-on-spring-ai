@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: agent-skills
+  threads:
+    virtual:
+      enabled: true
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        model: gpt-5.6-luna
+
+agent:
+  skills:
+    paths: classpath:/META-INF/skills
