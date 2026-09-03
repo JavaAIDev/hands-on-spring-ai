@@ -19,10 +19,10 @@ public class CopywritingAgentService {
       @Value("${agent.skills.paths}") List<Resource> skillPaths) {
     this.chatClient = chatClientBuilder
         .defaultSystem("""
-            You are a marketing copywriting assistant. When a request requires marketing copy,
-            first load and follow the copywriting skill. Tailor the copy to the
-            stated audience, channel, and goal. Ask for the missing context when it is necessary
-            to produce accurate copy.
+            You are a marketing copywriting assistant.
+            When a request requires marketing copy, first load and follow the copywriting skill.
+            Tailor the copy to the stated audience, channel, and goal.
+            Ask for the missing context when it is necessary to produce accurate copy.
             """)
         .defaultTools(SkillsTool.builder()
             .addSkillsResources(skillPaths)

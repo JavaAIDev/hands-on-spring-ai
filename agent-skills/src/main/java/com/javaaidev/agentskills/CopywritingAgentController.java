@@ -12,12 +12,14 @@ public class CopywritingAgentController {
 
   private final CopywritingAgentService copywritingAgentService;
 
-  public CopywritingAgentController(CopywritingAgentService copywritingAgentService) {
+  public CopywritingAgentController(
+      CopywritingAgentService copywritingAgentService) {
     this.copywritingAgentService = copywritingAgentService;
   }
 
   @PostMapping("/tasks")
-  public CopywritingTaskResponse run(@Valid @RequestBody CopywritingTaskRequest request) {
+  public CopywritingTaskResponse run(
+      @Valid @RequestBody CopywritingTaskRequest request) {
     return copywritingAgentService.create(request);
   }
 }
